@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@LuwolfyArt System 1.0 Py自动化程序</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Open Sans', Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f4f4f4;
+            color: #333;
+        }
+        h1, h2 {
+            text-align: center;
+            color: #333;
+        }
+        hr {
+            border: none;
+            height: 2px;
+            background-color: #e1e1e1;
+            margin: 20px 0;
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #666;
+        }
+        .form-group input[type="email"] {
+            width: calc(100% - 22px);
+            padding: 12px;
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+        }
+        .form-group .error-message {
+            color: #e74c3c;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+        .success-message {
+            color: #2ecc71;
+            font-size: 16px;
+            text-align: center;
+            margin-top: 20px;
+        }
+        button {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 6px;
+            background-color: #3498db;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        a {
+            color: #3498db;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: #2980b9;
+        }
+        p, .form-group {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background: #333;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>欢迎使用 @LuwolfyArt System 1.0 Py自动化程序</h1>
+        <hr>
+        <h2>安装指南：</h2>
+        <p>1、点击“安装python语言”文件夹中“双击直达python官网”下载python最新版。</p>
+        <p>2、确保按照“pyinstaller安装教程.txt”中的说明完成pyinstaller的安装。</p>
+        <p>3、运行自动化程序前，请仔细阅读注意事项。</p>
+        <hr>
+        <h2>安装前注意事项：</h2>
+        <p>1、计算机须保持联网状态。</p>
+        <p>2、建议下载最新版本的Python。</p>
+        <hr>
+        <h2>版权声明：</h2>
+        <p>©版权归@MD_Luwolfy所有，未经授权禁止转载或使用。</p>
+        <hr>
+        <h2>联系方式：</h2>
+        <p>邮箱：mc2016yuan@outlook.com</p>
+        <h2>获取方式：</h2>
+        <p>点击以下链接获取程序：<a href="https://pan.quark.cn/s/2ccb40e9d68b" target="_blank">程序下载链接</a></p>
+        <form id="codeRequestForm" onsubmit="return requestCode(event)">
+            <div class="form-group">
+                <label for="email">请输入提取码：</label>
+                <input type="email" id="email" required>
+                <span class="error-message" id="emailError"></span>
+            </div>
+            <button type="submit">发送请求</button>
+        </form>
+        <div class="success-message" id="successMessage"></div>
+    </div>
+
+    <footer>
+        <p>版权所有 &copy; @MD_Luwolfy. 保留所有权利。</p>
+    </footer>
+
+    <script>
+        function requestCode(event) {
+            event.preventDefault(); // 阻止表单默认提交行为
+            var email = document.getElementById('email').value;
+            var emailError = document.getElementById('emailError');
+            var successMessage = document.getElementById('successMessage');
+
+            // 清除之前的错误和成功消息
+            emailError.textContent = '';
+            successMessage.textContent = '';
+
+            // 简单的电子邮件验证
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                emailError.textContent = '请输入有效的提取码！';
+                return false;
+            }
+
+            // 模拟发送请求到服务器并获取提取码
+            setTimeout(() => {
+                // 假设请求成功，显示成功消息
+                successMessage.textContent = '本状态栏为虚拟发送，需要使用各大邮箱平台发送请求获取验证码！';
+                // 清空表单
+                document.getElementById('email').value = '';
+            }, 1000); // 模拟网络延迟
+
+            return false; // 阻止表单的默认提交行为
+        }
+    </script>
+</body>
+</html>
